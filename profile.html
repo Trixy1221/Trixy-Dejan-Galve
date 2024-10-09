@@ -1,0 +1,508 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediaX - Your Profile</title>
+<style>
+  :root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --background-color: #f0f2f5;
+    --text-color: #333;
+    --border-color: #e1e4e8;
+  }
+  
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  .nav-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 4rem auto 2rem;
+    padding: 1rem;
+  }
+  
+  .profile-header {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  
+  .profile-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+  
+  .profile-info {
+    flex-grow: 1;
+  }
+  
+  .profile-name {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .profile-username {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-bio {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .profile-stats {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .stat {
+    text-align: center;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .profile-actions {
+    margin-top: 1rem;
+  }
+  
+  .profile-actions button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile-actions button:hover {
+    background-color: #3a7bc8;
+  }
+  
+  .profile-content {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .profile-posts {
+    flex-grow: 1;
+  }
+  
+  .post {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  .post-user {
+    font-weight: bold;
+  }
+  
+  .post-timestamp {
+    font-size: 0.9rem;
+    color: #666;
+    margin-left: auto;
+  }
+  
+  .post-content {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+  
+  .post-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .post-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .post-action {
+    display: flex;
+    align-items: center;
+    color: #666;
+    cursor: pointer;
+  }
+  
+  .post-action svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+  }
+  
+  .profile-sidebar {
+    width: 300px;
+  }
+  
+  .sidebar-section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  
+  .sidebar-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .friend-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+  
+  .friend {
+    text-align: center;
+  }
+  
+  .friend-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .friend-name {
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+  
+  @media (max-width: 768px) {
+    .profile-content {
+      flex-direction: column;
+    }
+    
+    .profile-sidebar {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MediaX</div>
+      <div class="nav-links">
+        <a href="home.html"
+        <a href="explore.html"
+        <a href="notifications.html"
+        <a href="messages.html"
+        <a href="profile.html"
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="profile-header">
+      <img src="c:\Users\PC 29\Downloads\5e4bw.jpg" alt="Your profile picture" class="profile-avatar" width="150" height="150">
+      <div class="profile-info">
+        <h1 class="profile-name">Trixy Galve</h1>
+        <p class="profile-username">@trixy</p>
+        <p class="profile-bio">Digital nomad, coffee enthusiast, and aspiring photographer. Exploring the world one click at a time. 📸✈️☕</p>
+        <div class="profile-stats">
+          <div class="stat">
+            <div class="stat-value">1,234</div>
+            <div class="stat-label">Posts</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">5,678</div>
+            <div class="stat-label">Followers</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">901</div>
+            <div class="stat-label">Following</div>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <button>Edit Profile</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="profile-content">
+      <div class="profile-posts">
+        <div class="post">
+          <div class="post-header">
+            <img src="" alt="c:\Users\PC 29\Downloads\586nj.jpg" class="post-avatar" width="40" height="40">
+            <span class="post-user">Jhermae Daguplo</span>
+            <span class="post-timestamp">2 hours ago</span>
+          </div>
+          <div class="post-content">
+            <p>Just captured this amazing sunset in Bali! 🌅 #TravelPhotography #Bali</p>
+            <img src="c:\Users\PC 29\Downloads\sunset.jpg" alt="Sunset in Bali" class="post-image" width="100%" height="auto">
+          </div>
+          <div class="post-actions">
+            <div class="post-action">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              <span>256</span>
+            </div>
+            <div class="post-action">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              <span>64</span>
+            </div>
+            <div class="post-action">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+              <span>128</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="post">
+          <div class="post-header">
+            <img src="c:\Users\PC 29\Downloads\errrrr.jpg" alt="Your profile picture" class="post-avatar" width="40" height="40">
+            <span class="post-user">Alex Johnson</span>
+            <span class="post-timestamp">1 day ago</span>
+          </div>
+          <div class="post-content">
+            <p>Exploring the hidden gems of Tokyo. This city never ceases to amaze me! 🗼🍜 #TokyoAdventures #StreetPhotography</p>
+            <img src="c:\Users\PC 29\Downloads\Untitled.jpg" alt="Tokyo street scene" class="post-image" width="100%" height="auto">
+          </div>
+          <div class="post-actions">
+            <div class="post-action">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              <span>512</span>
+            </div>
+            <div class="post-action">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              <span>128</span>
+            </div>
+            <div class="post-action">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+              <span>256</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="profile-sidebar">
+        <div class="sidebar-section">
+          <h2 class="sidebar-title">Friends</h2>
+          <div class="friend-list">
+            <div class="friend">
+              <img src="c:\Users\PC 29\Downloads\t7yi hv.jpg" alt="Friend 1" class="friend-avatar" width="60" height="60">
+              <div class="friend-name">Mae</div>
+            </div>
+            <div class="friend">
+              <img src="c:\Users\PC 29\Downloads\yhj vb.jpg" alt="Friend 2" class="friend-avatar" width="60" height="60">
+              <div class="friend-name">Ella</div>
+            </div>
+            <div class="friend">
+              <img src="c:\Users\PC 29\Downloads\ye 5437.jpg" alt="Friend 3" class="friend-avatar" width="60" height="60">
+              <div class="friend-name">Sahara</div>
+            </div>
+            <div class="friend">
+              <img src="c:\Users\PC 29\Downloads\y6tuijyun.jpg" alt="Friend 4" class="friend-avatar" width="60" height="60">
+              <div class="friend-name">Meriel</div>
+            </div>
+            <div class="friend">
+              <img src="c:\Users\PC 29\Downloads\eydryhg ed yhgb.jpg" alt="Friend 5" class="friend-avatar" width="60" height="60">
+              <div class="friend-name">miyuki</div>
+            </div>
+            <div class="friend">
+              <img src="c:\Users\PC 29\Downloads\r gyter.jpg" alt="Friend 6" class="friend-avatar" width="60" height="60">
+              <div class="friend-name">Xyville</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="sidebar-section">
+          <h2 class="sidebar-title">Popular Hashtags</h2>
+          <ul>
+            <li>#TravelPhotography</li>
+            <li>#StreetFood</li>
+            <li>#UrbanExplorer</li>
+            <li>#CoffeeLovers</li>
+            <li>#SunsetChaser</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Add interactivity to the profile page
+    const likeButtons = document.querySelectorAll('.post-action:first-child');
+    const commentButtons = document.querySelectorAll('.post-action:nth-child(2)');
+    const shareButtons = document.querySelectorAll('.post-action:last-child');
+
+    function updateCounter(element) {
+      const counterElement = element.querySelector('span');
+      let count = parseInt(counterElement.textContent);
+      count++;
+      counterElement.textContent = count;
+      
+      // Add a temporary highlight effect
+      element.style.color = '#4a90e2';
+      setTimeout(() => {
+        element.style.color = '';
+      }, 300);
+    }
+
+    likeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        updateCounter(button);
+      });
+    });
+
+    commentButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        updateCounter(button);
+        // In a real app, you'd open a comment dialog here
+        alert('Comment feature coming soon!');
+      });
+    });
+
+    shareButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        updateCounter(button);
+        // In a real app, you'd open a share dialog here
+        alert('Share feature coming soon!');
+      });
+    });
+
+    // Add hover effect to friend avatars
+    const friendAvatars = document.querySelectorAll('.friend-avatar');
+    friendAvatars.forEach(avatar => {
+      avatar.addEventListener('mouseover', () => {
+        avatar.style.transform = 'scale(1.1)';
+        avatar.style.transition = 'transform 0.3s ease';
+      });
+      avatar.addEventListener('mouseout', () => {
+        avatar.style.transform = 'scale(1)';
+      });
+    });
+
+    // Simulate loading more posts when scrolling
+    window.addEventListener('scroll', () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+        // In a real app, you'd fetch more posts from the server here
+        setTimeout(() => {
+          const newPost = document.createElement('div');
+          newPost.className = 'post';
+          newPost.innerHTML = `
+            <div class="post-header">
+              <img src="https://mediax.social/avatars/user-profile.jpg" alt="Your profile picture" class="post-avatar" width="40" height="40">
+              <span class="post-user">Alex Johnson</span>
+              <span class="post-timestamp">Just now</span>
+            </div>
+            <div class="post-content">
+              <p>Another day, another adventure! 🌍✨ #Wanderlust</p>
+              <img src="https://mediax.social/posts/new-adventure.jpg" alt="New adventure scene" class="post-image" width="100%" height="auto">
+            </div>
+            <div class="post-actions">
+              <div class="post-action">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span>0</span>
+              </div>
+              <div class="post-action">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                <span>0</span>
+              </div>
+              <div class="post-action">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                <span>0</span>
+              </div>
+            </div>
+          `;
+          document.querySelector('.profile-posts').appendChild(newPost);
+          
+          // Add event listeners to the new post's action buttons
+          const newLikeButton = newPost.querySelector('.post-action:first-child');
+          const newCommentButton = newPost.querySelector('.post-action:nth-child(2)');
+          const newShareButton = newPost.querySelector('.post-action:last-child');
+          
+          newLikeButton.addEventListener('click', () => updateCounter(newLikeButton));
+          newCommentButton.addEventListener('click', () => {
+            updateCounter(newCommentButton);
+            alert('Comment feature coming soon!');
+          });
+          newShareButton.addEventListener('click', () => {
+            updateCounter(newShareButton);
+            alert('Share feature coming soon!');
+          });
+        }, 1000);
+      }
+    });
+  </script>
+</body></html>

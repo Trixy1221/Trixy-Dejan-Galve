@@ -1,0 +1,230 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediaX - Connect, Share, Explore</title>
+<style>
+  :root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --background-color: #f0f2f5;
+    --text-color: #333;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--primary-color);
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 6rem auto 2rem;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+  }
+  
+  .post {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  
+  .post-username {
+    font-weight: bold;
+  }
+  
+  .post-content {
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .post-actions button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .post-actions button:hover {
+    color: var(--primary-color);
+  }
+  
+  .trending {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 1rem;
+  }
+  
+  .trending h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+  }
+  
+  .trending-item {
+    margin-bottom: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MediaX</div>
+      <div class="nav-links">
+        <a href="home.html"
+        <a href="explore.html"
+        <a href="notifications.html"
+        <a href="messages.html"
+        <a href="profile.html"
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <aside class="left-sidebar">
+      <!-- Placeholder for user profile summary or navigation -->
+    </aside>
+    
+    <section class="feed">
+      <div class="post">
+        <div class="post-header">
+          <img src="c:\Users\PC 29\Downloads\sunset.jpg" alt="User avatar" class="post-avatar" width="40" height="40">
+          <span class="post-username">JohnDoe</span>
+        </div>
+        <div class="post-content">
+          <p>Just launched my new app! So excited to share it with the MediaX community. #TechLaunch #Entrepreneurship</p>
+        </div>
+        <div class="post-actions">
+          <button>Like</button>
+          <button>Comment</button>
+          <button>Share</button>
+        </div>
+      </div>
+      
+      <div class="post">
+        <div class="post-header">
+          <img src="c:\Users\PC 29\Downloads\errrrr.jpg" alt="User avatar" class="post-avatar" width="40" height="40">
+          <span class="post-username">TechEnthusiast</span>
+        </div>
+        <div class="post-content">
+          <p>Who's excited for the upcoming AI conference? Let's connect if you're attending! #AIConference2023 #Networking</p>
+        </div>
+        <div class="post-actions">
+          <button>Like</button>
+          <button>Comment</button>
+          <button>Share</button>
+        </div>
+      </div>
+    </section>
+    
+    <aside class="right-sidebar">
+      <div class="trending">
+        <h2>Trending Topics</h2>
+        <div class="trending-item">#TechLaunch</div>
+        <div class="trending-item">#AIConference2023</div>
+        <div class="trending-item">#MediaXChallenge</div>
+        <div class="trending-item">#InnovationWeek</div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    // Add interactivity
+    document.querySelectorAll('.post-actions button').forEach(button => {
+      button.addEventListener('click', function() {
+        this.style.color = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+        // Here you would typically send an API request to update the like/comment/share count
+        console.log(`${this.textContent} clicked!`);
+      });
+    });
+
+    // Simulated real-time updates
+    setInterval(() => {
+      const feed = document.querySelector('.feed');
+      const newPost = document.createElement('div');
+      newPost.className = 'post';
+      newPost.innerHTML = `
+        <div class="post-header">
+          <img src="https://mediax.social/avatars/user${Math.floor(Math.random() * 5) + 3}.jpg" alt="User avatar" class="post-avatar" width="40" height="40">
+          <span class="post-username">User${Math.floor(Math.random() * 1000)}</span>
+        </div>
+        <div class="post-content">
+          <p>New update! ${new Date().toLocaleTimeString()}</p>
+        </div>
+        <div class="post-actions">
+          <button>Like</button>
+          <button>Comment</button>
+          <button>Share</button>
+        </div>
+      `;
+      feed.insertBefore(newPost, feed.firstChild);
+      if (feed.children.length > 5) {
+        feed.removeChild(feed.lastChild);
+      }
+    }, 10000);
+  </script>
+</body></html>

@@ -1,0 +1,375 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediaX - Messages</title>
+<style>
+  :root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --background-color: #f0f2f5;
+    --text-color: #333;
+    --border-color: #e1e4e8;
+    --message-sent: #dcf8c6;
+    --message-received: #fff;
+  }
+  
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  .nav-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+  }
+  
+  main {
+    display: flex;
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    height: calc(100vh - 4rem);
+  }
+  
+  .conversations-list {
+    width: 300px;
+    background-color: #fff;
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+  }
+  
+  .conversation {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .conversation:hover, .conversation.active {
+    background-color: var(--background-color);
+  }
+  
+  .conversation-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  .conversation-info {
+    flex-grow: 1;
+  }
+  
+  .conversation-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+  }
+  
+  .conversation-preview {
+    font-size: 0.9rem;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .chat-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-header {
+    background-color: #fff;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+  }
+  
+  .chat-header-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+  
+  .chat-header-name {
+    font-weight: bold;
+  }
+  
+  .chat-messages {
+    flex-grow: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message {
+    max-width: 70%;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .message-sent {
+    align-self: flex-end;
+    background-color: var(--message-sent);
+  }
+  
+  .message-received {
+    align-self: flex-start;
+    background-color: var(--message-received);
+  }
+  
+  .message-time {
+    font-size: 0.75rem;
+    color: #666;
+    position: absolute;
+    bottom: -1.25rem;
+    right: 0.5rem;
+  }
+  
+  .chat-input {
+    padding: 1rem;
+    background-color: #fff;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+  }
+  
+  .chat-input input {
+    flex-grow: 1;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 1.5rem;
+    background-color: var(--background-color);
+  }
+  
+  .chat-input button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 1.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .chat-input button:hover {
+    background-color: #3a7bc8;
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      flex-direction: column;
+    }
+    
+    .conversations-list {
+      width: 100%;
+      height: 30vh;
+    }
+    
+    .chat-area {
+      height: 70vh;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MediaX</div>
+      <div class="nav-links">
+        <a href="home.html"
+        <a href="explore.html"
+        <a href="notifications.html"
+        <a href="messages.html"
+        <a href="profile.html"
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="conversations-list">
+      <div class="conversation active">
+        <img src="c:\Users\PC 29\Downloads\t7yi hv.jpg" alt="John Doe avatar" class="conversation-avatar" width="50" height="50">
+        <div class="conversation-info">
+          <div class="conversation-name">Trixy Galve</div>
+          <div class="conversation-preview">Sir, malooy ka. </div>
+        </div>
+      </div>
+      <div class="conversation">
+        <img src="c:\Users\PC 29\Downloads\Untitled.jpg" alt="Jane Smith avatar" class="conversation-avatar" width="50" height="50">
+        <div class="conversation-info">
+          <div class="conversation-name">Ella Felias</div>
+          <div class="conversation-preview">Did you see the latest post?</div>
+        </div>
+      </div>
+      <div class="conversation">
+        <img src="c:\Users\PC 29\Downloads\tea.jpg" alt="Mike Brown avatar" class="conversation-avatar" width="50" height="50">
+        <div class="conversation-info">
+          <div class="conversation-name">Tae Brown</div>
+          <div class="conversation-preview">Thanks for the follow!</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="chat-area">
+      <div class="chat-header">
+        <img src="c:\Users\PC 29\Downloads\ruodefuiow.jpg" alt="John Doe avatar" class="chat-header-avatar" width="40" height="40">
+        <div class="chat-header-name">John Doe</div>
+      </div>
+      
+      <div class="chat-messages">
+        <div class="message message-received">
+          Hey, how's it going?
+          <span class="message-time">10:30 AM</span>
+        </div>
+        <div class="message message-sent">
+          Hi John! I'm doing well, thanks. How about you?
+          <span class="message-time">10:32 AM</span>
+        </div>
+        <div class="message message-received">
+          I'm great! Did you see the new feature MediaX just released?
+          <span class="message-time">10:33 AM</span>
+        </div>
+        <div class="message message-sent">
+          No, I haven't checked it out yet. What's new?
+          <span class="message-time">10:35 AM</span>
+        </div>
+        <div class="message message-received">
+          They've added a cool AR filter for posts. You should definitely try it out!
+          <span class="message-time">10:36 AM</span>
+        </div>
+      </div>
+      
+      <div class="chat-input">
+        <input type="text" placeholder="Type a message...">
+        <button>Send</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const conversations = document.querySelectorAll('.conversation');
+    const chatMessages = document.querySelector('.chat-messages');
+    const chatInput = document.querySelector('.chat-input input');
+    const sendButton = document.querySelector('.chat-input button');
+
+    // Switch between conversations
+    conversations.forEach(conversation => {
+      conversation.addEventListener('click', () => {
+        conversations.forEach(c => c.classList.remove('active'));
+        conversation.classList.add('active');
+        
+        const name = conversation.querySelector('.conversation-name').textContent;
+        const avatar = conversation.querySelector('.conversation-avatar').src;
+        
+        document.querySelector('.chat-header-name').textContent = name;
+        document.querySelector('.chat-header-avatar').src = avatar;
+        
+        // Clear chat messages (in a real app, you'd load the conversation history here)
+        chatMessages.innerHTML = '';
+      });
+    });
+
+    // Send message functionality
+    function sendMessage() {
+      const messageText = chatInput.value.trim();
+      if (messageText) {
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', 'message-sent');
+        messageElement.innerHTML = `
+          ${messageText}
+          <span class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+        `;
+        chatMessages.appendChild(messageElement);
+        chatInput.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Simulate a reply after a short delay
+        setTimeout(() => {
+          const replyElement = document.createElement('div');
+          replyElement.classList.add('message', 'message-received');
+          replyElement.innerHTML = `
+            Thanks for your message! I'll get back to you soon.
+            <span class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+          `;
+          chatMessages.appendChild(replyElement);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 2000);
+      }
+    }
+
+    sendButton.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    // Simulate incoming messages
+    function simulateIncomingMessage() {
+      const messages = [
+        "Hey, have you tried the new MediaX app update?",
+        "I just posted a new photo. Check it out!",
+        "Are we still on for the meetup next week?",
+        "Did you see the trending hashtag? It's hilarious!",
+        "I need your opinion on something. Got a minute?"
+      ];
+
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      const messageElement = document.createElement('div');
+      messageElement.classList.add('message', 'message-received');
+      messageElement.innerHTML = `
+        ${randomMessage}
+        <span class="message-time">${new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+      `;
+      chatMessages.appendChild(messageElement);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Simulate an incoming message every 45 seconds
+    setInterval(simulateIncomingMessage, 45000);
+  </script>
+</body></html>

@@ -1,0 +1,340 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediaX - Explore</title>
+<style>
+  :root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --background-color: #f0f2f5;
+    --text-color: #333;
+    --border-color: #e1e4e8;
+  }
+  
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  .nav-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 4rem auto 2rem;
+    padding: 0 1rem;
+  }
+  
+  .explore-header {
+    margin-bottom: 2rem;
+  }
+  
+  .explore-header h1 {
+    font-size: 2rem;
+    color: var(--primary-color);
+  }
+  
+  .search-bar {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  
+  .search-bar input {
+    flex-grow: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .search-bar button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-bar button:hover {
+    background-color: #3a7bc8;
+  }
+  
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .category {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .category:hover, .category.active {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .explore-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease;
+  }
+  
+  .explore-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .explore-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .explore-item-content {
+    padding: 1rem;
+  }
+  
+  .explore-item-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .explore-item-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .explore-item-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: #999;
+  }
+  
+  @media (max-width: 768px) {
+    .explore-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MediaX</div>
+      <div class="nav-links">
+        <a href="home.html"
+        <a href="explore.html"
+        <a href="notifications.html"
+        <a href="messages.html"
+        <a href="profile.html"
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <section class="explore-header">
+      <h1>Explore</h1>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for topics, users, or trends">
+        <button>Search</button>
+      </div>
+      <div class="categories">
+        <div class="category active">All</div>
+        <div class="category">Technology</div>
+        <div class="category">Science</div>
+        <div class="category">Art</div>
+        <div class="category">Music</div>
+        <div class="category">Sports</div>
+        <div class="category">Travel</div>
+      </div>
+    </section>
+    
+    <section class="explore-grid">
+      <div class="explore-item">
+        <img src="c:\Users\PC 29\Downloads\r gyter.jpg" alt="Tech conference with people networking" width="250" height="200">
+        <div class="explore-item-content">
+          <div class="explore-item-title">TechConf 2023</div>
+          <div class="explore-item-description">Annual gathering of tech enthusiasts and industry leaders</div>
+          <div class="explore-item-meta">
+            <span>1.2K followers</span>
+            <span>5 days left</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="explore-item">
+        <img src="c:\Users\PC 29\Downloads\try567.jpg" alt="Abstract AI-generated artwork" width="250" height="200">
+        <div class="explore-item-content">
+          <div class="explore-item-title">AI Art Exhibition</div>
+          <div class="explore-item-description">Exploring the intersection of artificial intelligence and creativity</div>
+          <div class="explore-item-meta">
+            <span>3.5K followers</span>
+            <span>Online event</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="explore-item">
+        <img src="c:\Users\PC 29\Downloads\64ty74.jpg" alt="Rocket launch into space" width="250" height="200">
+        <div class="explore-item-content">
+          <div class="explore-item-title">Space Exploration Forum</div>
+          <div class="explore-item-description">Discussing the future of human space travel</div>
+          <div class="explore-item-meta">
+            <span>2.8K followers</span>
+            <span>Live now</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="explore-item">
+        <img src="c:\Users\PC 29\Downloads\ytn6u 56.jpg" alt="Wind turbines and solar panels" width="250" height="200">
+        <div class="explore-item-content">
+          <div class="explore-item-title">Green Energy Summit</div>
+          <div class="explore-item-description">Innovations in sustainable energy technologies</div>
+          <div class="explore-item-meta">
+            <span>4.1K followers</span>
+            <span>2 weeks left</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="explore-item">
+        <img src="c:\Users\PC 29\Downloads\586nj.jpg" alt="Person wearing VR headset" width="250" height="200">
+        <div class="explore-item-content">
+          <div class="explore-item-title">VR Gaming Championship</div>
+          <div class="explore-item-description">Compete in cutting-edge virtual reality games</div>
+          <div class="explore-item-meta">
+            <span>5.6K followers</span>
+            <span>Registration open</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="explore-item">
+        <img src="c:\Users\PC 29\Downloads\5e4bw.jpg" alt="Group of people coding on laptops" width="250" height="200">
+        <div class="explore-item-content">
+          <div class="explore-item-title">Code Bootcamp 2023</div>
+          <div class="explore-item-description">Intensive program to learn full-stack development</div>
+          <div class="explore-item-meta">
+            <span>2.3K followers</span>
+            <span>Enrollment closing soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Add interactivity to categories
+    const categories = document.querySelectorAll('.category');
+    categories.forEach(category => {
+      category.addEventListener('click', function() {
+        categories.forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        // Here you would typically fetch and update the explore grid based on the selected category
+        console.log(`Category ${this.textContent} selected`);
+      });
+    });
+
+    // Search functionality
+    const searchBar = document.querySelector('.search-bar input');
+    const searchButton = document.querySelector('.search-bar button');
+
+    searchButton.addEventListener('click', performSearch);
+    searchBar.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+
+    function performSearch() {
+      const searchTerm = searchBar.value.trim();
+      if (searchTerm) {
+        // Here you would typically send an API request to search for content
+        console.log(`Searching for: ${searchTerm}`);
+        // For this demo, we'll just log the search term
+        alert(`Searching for: ${searchTerm}`);
+      }
+    }
+
+    // Simulated content loading
+    window.addEventListener('scroll', () => {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
+        loadMoreContent();
+      }
+    });
+
+    function loadMoreContent() {
+      const exploreGrid = document.querySelector('.explore-grid');
+      const newItem = document.createElement('div');
+      newItem.className = 'explore-item';
+      newItem.innerHTML = `
+        <img src="https://mediax.social/explore/random-event-${Math.floor(Math.random() * 10)}.jpg" alt="Random event image" width="250" height="200">
+        <div class="explore-item-content">
+          <div class="explore-item-title">New Trending Event</div>
+          <div class="explore-item-description">Exciting new content for you to explore</div>
+          <div class="explore-item-meta">
+            <span>${Math.floor(Math.random() * 1000)}K followers</span>
+            <span>Just added</span>
+          </div>
+        </div>
+      `;
+      exploreGrid.appendChild(newItem);
+    }
+  </script>
+</body></html>

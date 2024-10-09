@@ -1,0 +1,400 @@
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediaX - Home Feed</title>
+<style>
+  :root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --background-color: #f0f2f5;
+    --text-color: #333;
+    --border-color: #e1e4e8;
+  }
+  
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+  }
+  
+  .nav-links a {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 4rem auto 2rem;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1rem;
+  }
+  
+  .post-composer {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .post-composer textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-composer button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .post-composer button:hover {
+    background-color: #3a7bc8;
+  }
+  
+  .feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .post {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 1rem;
+  }
+  
+  .post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  
+  .post-username {
+    font-weight: bold;
+  }
+  
+  .post-timestamp {
+    font-size: 0.8rem;
+    color: #666;
+    margin-left: 0.5rem;
+  }
+  
+  .post-content {
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-image {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-actions {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.5rem;
+  }
+  
+  .post-actions button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+  }
+  
+  .post-actions button:hover {
+    color: var(--primary-color);
+  }
+  
+  .post-actions button svg {
+    margin-right: 0.25rem;
+  }
+  
+  .trending, .suggestions {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .trending h2, .suggestions h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+  }
+  
+  .trending-item, .suggestion-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .suggestion-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">MediaX</div>
+      <div class="nav-links">
+        <a href="home.html"
+        <a href="explore.html"
+        <a href="notifications.html"
+        <a href="messages.html"
+        <a href="profile.html"
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <aside class="left-sidebar">
+      <div class="suggestions">
+        <h2>People You May Know</h2>
+        <div class="suggestion-item">
+          <img src="c:\Users\PC 29\Downloads\Untitled.jpg" alt="Suggested user avatar" class="suggestion-avatar" width="32" height="32">
+          <span>TechGuru99</span>
+        </div>
+        <div class="suggestion-item">
+          <img src="c:\Users\PC 29\Downloads\t7yi hv.jpg" alt="Suggested user avatar" class="suggestion-avatar" width="32" height="32">
+          <span>DesignMaster</span>
+        </div>
+        <div class="suggestion-item">
+          <img src="c:\Users\PC 29\Downloads\yhj vb.jpg" alt="Suggested user avatar" class="suggestion-avatar" width="32" height="32">
+          <span>AIResearcher</span>
+        </div>
+      </div>
+    </aside>
+    
+    <section class="feed">
+      <div class="post-composer">
+        <textarea placeholder="What's on your mind?" rows="3"></textarea>
+        <button>Post</button>
+      </div>
+      
+      <div class="post">
+        <div class="post-header">
+          <img src="c:\Users\PC 29\Downloads\ye 5437.jpg" alt="User avatar" class="post-avatar" width="40" height="40">
+          <span class="post-username">TechEnthusiast</span>
+          <span class="post-timestamp">2 hours ago</span>
+        </div>
+        <div class="post-content">
+          <p>Just attended an amazing AI conference! The future is here, and it's incredible. #AIConference2023 #FutureTech</p>
+          <img src="c:\Users\PC 29\Downloads\y6tuijyun.jpg" alt="AI Conference hall filled with attendees" class="post-image" width="100%" height="auto">
+        </div>
+        <div class="post-actions">
+          <button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+            </svg>
+            Like
+          </button>
+          <button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Comment
+          </button>
+          <button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Share
+          </button>
+        </div>
+      </div>
+      
+      <div class="post">
+        <div class="post-header">
+          <img src="c:\Users\PC 29\Downloads\eydryhg ed yhgb.jpg" alt="User avatar" class="post-avatar" width="40" height="40">
+          <span class="post-username">CodeNinja</span>
+          <span class="post-timestamp">5 hours ago</span>
+        </div>
+        <div class="post-content">
+          <p>Just released a new open-source library for data visualization. Check it out and let me know what you think! #OpenSource #DataViz</p>
+        </div>
+        <div class="post-actions">
+          <button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+            </svg>
+            Like
+          </button>
+          <button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Comment
+          </button>
+          <button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Share
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <aside class="right-sidebar">
+      <div class="trending">
+        <h2>Trending Topics</h2>
+        <div class="trending-item">#AIConference2023</div>
+        <div class="trending-item">#OpenSource</div>
+        <div class="trending-item">#FutureTech</div>
+        <div class="trending-item">#DataViz</div>
+        <div class="trending-item">#MediaXChallenge</div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    // Add interactivity
+    document.querySelectorAll('.post-actions button').forEach(button => {
+      button.addEventListener('click', function() {
+        this.style.color = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+        // Here you would typically send an API request to update the like/comment/share count
+        console.log(`${this.textContent.trim()} clicked!`);
+      });
+    });
+
+    // Post composer functionality
+    const postComposer = document.querySelector('.post-composer');
+    const postTextarea = postComposer.querySelector('textarea');
+    const postButton = postComposer.querySelector('button');
+
+    postButton.addEventListener('click', () => {
+      const content = postTextarea.value.trim();
+      if (content) {
+        const newPost = createPost(content);
+        document.querySelector('.feed').insertBefore(newPost, document.querySelector('.feed').firstChild.nextSibling);
+        postTextarea.value = '';
+      }
+    });
+
+    function createPost(content) {
+      const post = document.createElement('div');
+      post.className = 'post';
+      post.innerHTML = `
+        <div class="post-header">
+          <img src="https://mediax.social/avatars/user-you.jpg" alt="Your avatar" class="post-avatar" width="40" height="40">
+          <span class="post-username">You</span>
+          <span class="post-timestamp">Just now</span>
+        </div>
+        <div class="post-content">
+          <p>${content}</p>
+        </div>
+        <div class="post-actions">
+          <button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+            </svg>
+            Like
+          </button>
+          <button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            Comment
+          </button>
+          <button>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            Share
+          </button>
+        </div>
+      `;
+      return post;
+    }
+
+    // Simulated real-time updates
+    setInterval(() => {
+      const feed = document.querySelector('.feed');
+      const newPost = createPost(`Random update at ${new Date().toLocaleTimeString()}`);
+      feed.insertBefore(newPost, feed.firstChild.nextSibling);
+      if (feed.children.length > 5) {
+        feed.removeChild(feed.lastChild);
+      }
+    }, 30000);
+  </script>
+</body></html>
